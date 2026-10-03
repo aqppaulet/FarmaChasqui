@@ -1,0 +1,18 @@
+# Python y Django
+__pycache__/
+*.py[cod]
+.venv/
+env/
+.env
+
+# Datos y archivos generados localmente
+db.sqlite3
+*.log
+*.aux
+
+# Material temporal de preparación y vistas previas
+tmp/
+.tmp_farmachasqui_doc/
+~$*.docx
+output/latex/preview-*.png
+output/latex/preview-*.jpg

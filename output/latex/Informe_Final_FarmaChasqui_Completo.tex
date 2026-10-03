@@ -1,0 +1,274 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{longtable}
+
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.28}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\capitulo}[1]{\vspace{1.2em}\noindent\textbf{\large #1}\par\vspace{0.45em}}
+\newcommand{\apartado}[1]{\vspace{0.85em}\noindent\textbf{#1}\par\vspace{0.3em}}
+
+\begin{document}
+
+\begin{center}
+\textbf{FORMATO DE PROYECTO FINAL TRABAJO INTERDISCIPLINAR 2026}
+\end{center}
+
+\vspace{1.8cm}
+\begin{center}
+\textbf{PORTADA}
+
+\vspace{1.4cm}
+{\Large\textbf{FarmaChasqui}}\\[0.45cm]
+{\large Sistema conversacional para atención y pedidos permitidos en una botica mediana}\\[1.3cm]
+
+\textbf{Integrantes}\\[0.2cm]
+José Paredes Málaga\\
+Kenny Borja Valencia\\
+Johan Fabricio Lizarve Mamani\\[0.8cm]
+
+\textbf{Equipo farmacéutico de validación}\\[0.2cm]
+Karol Díaz, técnica farmacéutica\\
+José Paredes Adrianzen, químico farmacéutico\\[0.8cm]
+
+\textbf{Contexto profesional}\\[0.2cm]
+Botica mediana con atención operativa y validación farmacéutica responsable.\\[0.8cm]
+
+\textbf{Año 2026}
+\end{center}
+
+\newpage
+
+\capitulo{CAPÍTULO 1: ASPECTOS GENERALES}
+
+\apartado{1. DEFINICIÓN DEL PROBLEMA}
+
+\textbf{Descripción del problema.} Una botica mediana recibe consultas recurrentes sobre productos, precios, disponibilidad y pedidos. Cuando estas preguntas se resuelven exclusivamente de manera manual, la atención presencial se interrumpe y la información puede entregarse tarde o de forma inconsistente. El riesgo aumenta cuando la consulta involucra productos sujetos a receta o temas que requieren criterio profesional.
+
+\textbf{Contexto profesional.} FarmaChasqui se plantea para una botica en la que Karol Díaz, técnica farmacéutica, participa en la atención operativa y José Paredes Adrianzen, químico farmacéutico, valida los criterios de receta, seguridad y derivación. El catálogo, el stock y los precios cambian durante la operación, por lo que la información comercial debe provenir de datos actualizados y autorizados.
+
+\textbf{Justificación.} La propuesta integra ingeniería de software, experiencia de usuario, gestión de datos y práctica farmacéutica. El sistema ofrece una primera atención informativa, registra solicitudes preliminares permitidas y deriva los casos sensibles. No diagnostica, no prescribe, no recomienda dosis y no confirma automáticamente una venta que requiere receta.
+
+\apartado{2. MISIÓN}
+
+Facilitar una atención inicial rápida, clara y responsable en boticas medianas mediante un asistente conversacional que informe, gestione solicitudes permitidas y derive oportunamente los casos que requieren evaluación del químico farmacéutico.
+
+\apartado{3. VISIÓN}
+
+Ser una solución de apoyo para la atención farmacéutica digital que mejore la experiencia del cliente sin sustituir el juicio profesional, manteniendo la seguridad del paciente, la protección de datos y el cumplimiento de la regulación sanitaria peruana.
+
+\apartado{4. OBJETIVOS}
+
+\textbf{Objetivo general.} Diseñar e implementar un MVP de FarmaChasqui, un chatbot para una botica mediana que responda consultas de productos, precios, disponibilidad y pedidos permitidos, y que escale al químico farmacéutico los casos que necesitan receta o validación profesional.
+
+\textbf{Objetivos específicos.}
+\begin{itemize}[leftmargin=1.5em,itemsep=0.3em]
+    \item Identificar los flujos de consulta más frecuentes y convertirlos en intenciones conversacionales claras.
+    \item Modelar un catálogo con presentación, precio, disponibilidad y condición de venta.
+    \item Implementar reglas para diferenciar solicitudes permitidas de casos con receta o revisión profesional.
+    \item Diseñar una interfaz conversacional accesible que comunique sus límites.
+    \item Evaluar la usabilidad, la clasificación de consultas y la derivación segura con escenarios simulados.
+\end{itemize}
+
+\apartado{5. PARTICIPACIÓN DE LAS DISCIPLINAS}
+
+El equipo académico asume el análisis, diseño, desarrollo y calidad del prototipo. Karol Díaz aporta los casos frecuentes, el vocabulario de atención y la validación operativa. José Paredes Adrianzen valida las reglas de receta, seguridad, escalamiento y revisión de casos que requieren intervención profesional.
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.24\textwidth}p{0.22\textwidth}Y}
+\toprule
+\textbf{Persona o rol} & \textbf{Área} & \textbf{Responsabilidad} \\
+\midrule
+José Paredes Málaga & Ingeniería de software & Requisitos, arquitectura del prototipo y desarrollo de integraciones. \\
+Kenny Borja Valencia & Experiencia de usuario & Flujos conversacionales, interfaz y pruebas de usabilidad. \\
+Johan Fabricio Lizarve Mamani & Datos y calidad & Catálogo, pruebas de clasificación, métricas y documentación. \\
+Karol Díaz & Técnica farmacéutica & Casos frecuentes, vocabulario de clientes y validación operativa. \\
+José Paredes Adrianzen & Químico farmacéutico & Criterios de receta, seguridad, derivación y revisión de casos profesionales. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\capitulo{CAPÍTULO 2: MARCO TEÓRICO}
+
+\apartado{1. Atención conversacional en farmacia}
+
+Un chatbot interpreta una solicitud en lenguaje natural y responde mediante un flujo definido, una base de conocimientos o ambos enfoques. En FarmaChasqui, las respuestas se limitan al catálogo autorizado y a reglas explícitas. El valor del sistema no consiste en responder cualquier consulta, sino en reconocer el alcance de cada caso y redirigir con seguridad cuando ese alcance se supera.
+
+\apartado{2. Seguridad y escalamiento profesional}
+
+La seguridad del paciente exige diferenciar la información comercial de una recomendación terapéutica. El prototipo trata como casos de escalamiento las solicitudes de medicamentos con receta, dudas sobre dosis o interacciones, presencia de síntomas, alergias, embarazo, consulta sobre tratamiento o información insuficiente para responder de forma segura. En estos casos se muestra un mensaje de límite y se deriva la atención al profesional.
+
+\apartado{3. Condición de venta y receta médica}
+
+La condición de venta debe provenir de una fuente administrada por la botica y validada por el profesional responsable. Para productos de venta sin receta, el sistema puede informar presentación, precio y disponibilidad, además de registrar una solicitud preliminar. Para productos sujetos a receta, el asistente informa que se necesita evaluación profesional y no confirma una venta automática. Esta medida está alineada con la Ley N.° 29459, el Reglamento de Establecimientos Farmacéuticos aprobado por el Decreto Supremo N.° 014-2011-SA y las comunicaciones de DIGEMID sobre la exigencia de receta para los medicamentos sujetos a prescripción.
+
+\apartado{4. Privacidad y datos personales}
+
+El sistema solicita únicamente los datos necesarios para responder o gestionar una solicitud, como nombre, medio de contacto y detalle del pedido. Debe informar la finalidad del tratamiento, limitar el acceso del personal, registrar acciones relevantes y definir una política de conservación. La implementación con datos reales debe revisarse frente a la Ley N.° 29733 y su Reglamento aprobado por el Decreto Supremo N.° 016-2024-JUS.
+
+\apartado{5. Diseño centrado en las personas}
+
+El diseño conversacional reduce ambigüedad mediante opciones concretas: consultar producto, revisar disponibilidad, conocer precio, iniciar una solicitud o hablar con un profesional. Los mensajes críticos evitan lenguaje técnico innecesario e indican claramente qué información fue confirmada y qué queda pendiente.
+
+\capitulo{CAPÍTULO 3: METODOLOGÍA}
+
+\apartado{1. POBLACIÓN OBJETIVO}
+
+La población objetivo está formada por clientes de una botica mediana que realizan consultas antes de visitar el local o solicitar un pedido, y por el personal que actualmente responde dichas consultas. La validación inicial se realizará con participantes adultos y escenarios simulados, sin registrar datos clínicos ni usar pedidos reales.
+
+\apartado{2. ARQUITECTURA DE LA SOLUCIÓN}
+
+FarmaChasqui se implementa como una arquitectura conectada mediante una API en Django. La interfaz web recibe la consulta; el servicio conversacional identifica si se trata de producto, precio, disponibilidad, pedido o un caso fuera de alcance; el catálogo mantiene presentación, precio, stock y condición de venta; el motor de reglas decide si corresponde informar o derivar; y el panel administrativo permite revisar productos y solicitudes. El catálogo es la única fuente para información comercial y los productos con receta no se confirman automáticamente.
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.25\textwidth}Yp{0.23\textwidth}}
+\toprule
+\textbf{Componente} & \textbf{Función} & \textbf{Salida principal} \\
+\midrule
+Canal conversacional & Recibe consultas y presenta opciones accesibles. & Mensaje y estado. \\
+Servicio de chat & Clasifica la intención y aplica reglas de seguridad. & Respuesta o derivación. \\
+Catálogo e inventario & Centraliza presentación, precio, disponibilidad y condición de venta. & Información comercial vigente. \\
+Motor de reglas & Evalúa receta, señales de riesgo y límites del chatbot. & Permitido, derivar o no disponible. \\
+Panel administrativo & Permite administrar productos y revisar solicitudes. & Decisión trazable. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\apartado{3. REGLAS OPERATIVAS PROPUESTAS}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.24\textwidth}Yp{0.23\textwidth}}
+\toprule
+\textbf{Situación} & \textbf{Acción del chatbot} & \textbf{Intervención humana} \\
+\midrule
+Precio o disponibilidad & Responde con datos vigentes del catálogo. & Solo ante inconsistencia. \\
+Solicitud permitida & Registra solicitud preliminar y advierte que el stock puede cambiar. & Revisión operativa. \\
+Producto con receta & No confirma venta; comunica que requiere validación y deriva. & Químico farmacéutico. \\
+Dosis, interacciones o síntomas & No entrega recomendación clínica; deriva a atención profesional. & Profesional o servicio de salud. \\
+Producto no encontrado & Solicita reformular la búsqueda o hablar con personal. & Personal operativo. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\apartado{4. DISEÑO DEL EXPERIMENTO}
+
+Se realizará una prueba piloto con 8 a 12 participantes adultos y una revisión de escenarios por parte del equipo farmacéutico. Las tareas simuladas serán buscar un producto, consultar precio, verificar disponibilidad, iniciar una solicitud permitida y solicitar un medicamento que requiere derivación. Se medirán el éxito de tarea, el tiempo, los errores de comprensión y la percepción de facilidad. El químico farmacéutico verificará que todos los casos críticos terminen en derivación.
+
+\apartado{5. MÉTRICAS DE EVALUACIÓN}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.25\textwidth}Yp{0.20\textwidth}}
+\toprule
+\textbf{Métrica} & \textbf{Definición} & \textbf{Meta inicial} \\
+\midrule
+Éxito de tarea & Porcentaje de tareas completadas sin ayuda. & 80\% o más. \\
+Tiempo de respuesta & Tiempo hasta una respuesta del catálogo. & Menos de 3 s. \\
+Precisión de clasificación & Casos identificados correctamente por intención o derivación. & 90\% o más. \\
+Derivación segura & Casos críticos simulados enviados a revisión. & 100\%. \\
+Usabilidad percibida & Puntaje SUS o encuesta equivalente. & 70/100 o más. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\apartado{6. HERRAMIENTAS}
+
+\begin{itemize}[leftmargin=1.5em,itemsep=0.3em]
+    \item Python y Django para el backend, reglas y panel administrativo.
+    \item Frontend web responsivo para el chat y las solicitudes.
+    \item Base de datos relacional para productos y solicitudes.
+    \item Git para control de versiones y documentación técnica.
+    \item Hoja de pruebas y consentimiento para la evaluación piloto.
+\end{itemize}
+
+\capitulo{CAPÍTULO 4: DISEÑO DEL PROTOTIPO}
+
+\apartado{1. FLUJO PRINCIPAL}
+
+El usuario inicia la conversación y escribe una consulta. El sistema identifica si se trata de producto, precio, disponibilidad, solicitud o consulta fuera de alcance. Para datos de catálogo, muestra información vigente. Para una solicitud permitida, solicita datos mínimos y la registra como preliminar. Si detecta receta, dosis, interacción, síntomas, alergias, embarazo o una petición clínica, explica el límite y deriva el caso al profesional.
+
+\apartado{2. PANTALLAS O VISTAS MÍNIMAS}
+
+\begin{itemize}[leftmargin=1.5em,itemsep=0.3em]
+    \item Inicio del chat con aviso de alcance, privacidad y acceso a atención humana.
+    \item Resultado de búsqueda con producto, presentación, precio, disponibilidad y condición de venta.
+    \item Formulario de solicitud preliminar para productos de venta libre.
+    \item Mensaje de derivación con estado de espera.
+    \item Panel administrativo para administrar productos y revisar solicitudes.
+\end{itemize}
+
+\apartado{3. CRONOGRAMA DE ACTIVIDADES}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.26\textwidth}p{0.25\textwidth}p{0.12\textwidth}Y}
+\toprule
+\textbf{Actividad} & \textbf{Responsable} & \textbf{Semanas} & \textbf{Entregable} \\
+\midrule
+Requisitos y reglas & Equipo y personal farmacéutico & 1--2 & Matriz de casos. \\
+Diseño conversacional & UX y equipo & 3--4 & Flujos y pantallas. \\
+Catálogo y backend & Desarrollo & 5--6 & API y datos de prueba. \\
+MVP Django & Desarrollo & 7--8 & Chat, catálogo y solicitudes. \\
+Pruebas de seguridad & Equipo y químico farmacéutico & 9 & Hallazgos y ajustes. \\
+Documentación & Equipo & 10 & Informe, póster y demostración. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\apartado{4. EVIDENCIAS DE AVANCE}
+
+El avance cuenta con una base funcional en Python y Django: catálogo con precio, stock y condición de venta; reglas conversacionales que escalan solicitudes de receta, dosis, interacciones, alergias, embarazo y síntomas; registro preliminar exclusivo para productos de venta libre; panel administrativo; datos de prueba y pruebas automatizadas de las reglas principales. También se elaboró un póster A1 para difundir el proyecto. Permanecen pendientes las pruebas con usuarios, la validación formal del catálogo y las reglas por el equipo farmacéutico, y el despliegue controlado.
+
+\apartado{5. PORCENTAJE DE AVANCE}
+
+El avance técnico estimado es de 35\%. Incluye la definición del problema, alcance, roles, metodología, diseño conversacional, arquitectura Django, catálogo de demostración y reglas iniciales de seguridad. Falta completar el control de acceso por roles, la validación con participantes, la revisión formal por el químico farmacéutico y la preparación para datos reales.
+
+\apartado{6. RIESGOS Y CONTROLES}
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.31\textwidth}Y}
+\toprule
+\textbf{Riesgo} & \textbf{Control previsto} \\
+\midrule
+Catálogo desactualizado & Actualización operativa con fecha visible; el sistema no garantiza el stock final. \\
+Respuesta clínica fuera de alcance & Reglas de bloqueo, mensajes de límite y derivación humana obligatoria. \\
+Clasificación incorrecta & Validación del catálogo y pruebas con casos límite. \\
+Uso excesivo de datos & Minimización de datos, aviso de privacidad y acceso por roles. \\
+Demora en casos escalados & Cola con estado, responsable visible y canal alternativo. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\capitulo{BIBLIOGRAFÍA}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.55em]
+    \item Autoridad Nacional de Protección de Datos Personales. (2024). \textit{Decreto Supremo N.° 016-2024-JUS: Reglamento de la Ley N.° 29733}.
+    \item Congreso de la República del Perú. (2009). \textit{Ley N.° 29459: Ley de los productos farmacéuticos, dispositivos médicos y productos sanitarios}.
+    \item Dirección General de Medicamentos, Insumos y Drogas. (s. f.). \textit{Venta sin receta}.
+    \item Ministerio de Salud del Perú. (2011). \textit{Decreto Supremo N.° 014-2011-SA: Reglamento de Establecimientos Farmacéuticos}.
+    \item Ministerio de Salud del Perú. (2024). \textit{Farmacias y boticas deben exigir receta antes de vender medicamentos que requieren prescripción médica}.
+    \item World Health Organization. (2024). \textit{Medication without harm: Policy brief}.
+\end{enumerate}
+
+\end{document}

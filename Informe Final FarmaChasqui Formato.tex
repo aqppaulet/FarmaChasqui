@@ -1,0 +1,137 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{ragged2e}
+
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.25}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
+\newcommand{\capitulo}[1]{\vspace{1.2em}\noindent\textbf{\large #1}\par\vspace{0.45em}}
+\newcommand{\apartado}[1]{\vspace{0.8em}\noindent\textbf{#1}\par\vspace{0.25em}}
+
+\begin{document}
+
+\begin{center}
+\textbf{FORMATO DE PROYECTO FINAL TRABAJO INTERDISCIPLINAR -- 2026}
+\end{center}
+
+\vspace{1.8cm}
+\begin{center}
+\textbf{PORTADA}
+
+\vspace{1.4cm}
+{\Large\textbf{FarmaChasqui}}\\[0.5cm]
+{\large Sistema conversacional para atención y pedidos permitidos en una botica mediana}\\[1.5cm]
+
+\textbf{Integrantes}\\[0.2cm]
+José Paredes Málaga\\
+Kenny Borja Valencia\\
+Johan Fabricio Lizarve Mamani\\[1cm]
+
+\textbf{Contexto profesional}\\[0.2cm]
+Botica mediana con una asistente farmacéutica y un químico farmacéutico responsable.\\[1cm]
+
+\textbf{Año 2026}
+\end{center}
+
+\newpage
+
+\capitulo{CAPÍTULO 1: ASPECTOS GENERALES}
+
+\apartado{1. DEFINICIÓN DEL PROBLEMA}
+
+\textbf{Descripción del problema.} FarmaChasqui atiende una necesidad recurrente de una botica mediana: responder consultas sobre productos, precios, disponibilidad y pedidos sin interrumpir continuamente la atención presencial. El problema incluye el riesgo de brindar una respuesta incompleta cuando la consulta involucra medicamentos sujetos a receta o asuntos que requieren criterio profesional.
+
+\textbf{Descripción del contexto.} El proyecto se ubica en una botica mediana donde una asistente farmacéutica atiende consultas cotidianas y un químico farmacéutico experimentado es responsable de los casos que requieren validación. El catálogo, el stock y los precios pueden variar, por lo que la información que entrega el chatbot debe provenir de datos actualizados de la botica.
+
+\textbf{Justificación y disciplinas involucradas.} La solución integra ingeniería de software, experiencia de usuario y conocimiento farmacéutico. El sistema automatiza la primera atención, consulta el catálogo y registra pedidos permitidos; la interfaz comunica los límites del chatbot y facilita la derivación; el químico farmacéutico define y valida las reglas de receta, seguridad y escalamiento. El chatbot no diagnostica, no prescribe ni confirma de forma automática una venta que requiera receta.
+
+\apartado{2. MISIÓN}
+
+Facilitar una atención inicial rápida, clara y responsable en boticas medianas mediante un asistente conversacional que informe, gestione pedidos permitidos y derive oportunamente los casos que requieren evaluación del químico farmacéutico.
+
+\apartado{3. VISIÓN}
+
+Ser una solución de apoyo para la atención farmacéutica digital que mejore la experiencia del cliente sin sustituir el juicio profesional, manteniendo la seguridad del paciente, la protección de datos y el cumplimiento de la regulación sanitaria peruana.
+
+\apartado{4. OBJETIVOS}
+
+\textbf{Objetivo general.} Diseñar y prototipar FarmaChasqui, un chatbot para una botica mediana que responda consultas de productos, precios, disponibilidad y pedidos permitidos, y que escale al químico farmacéutico los casos que necesitan receta o validación profesional.
+
+\textbf{Objetivos específicos.}
+\begin{itemize}[leftmargin=1.4em,itemsep=0.25em]
+    \item Identificar los flujos de consulta más frecuentes.
+    \item Modelar un catálogo con precio, disponibilidad y condición de venta.
+    \item Implementar reglas para diferenciar pedidos permitidos de casos con receta o revisión profesional.
+    \item Diseñar una interfaz conversacional clara y accesible.
+    \item Evaluar la usabilidad, la clasificación de consultas y la derivación segura con escenarios simulados.
+\end{itemize}
+
+\apartado{3. PARTICIPACIÓN DE LAS DISCIPLINAS}
+
+Las personas involucradas participan desde la ingeniería de software, la experiencia de usuario, la gestión de datos y la práctica farmacéutica. Los integrantes académicos asumen los roles de análisis, diseño y desarrollo; la validación de reglas clínicas y de dispensación corresponde al químico farmacéutico vinculado con la botica.
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.22\textwidth}p{0.20\textwidth}Y}
+\toprule
+\textbf{Persona} & \textbf{ÁREA} & \textbf{Responsabilidad} \\
+\midrule
+José Paredes Málaga & Ingeniería de software & Requisitos, arquitectura del prototipo y desarrollo de integraciones. \\
+Kenny Borja Valencia & Experiencia de usuario & Flujos conversacionales, interfaz y pruebas de usabilidad. \\
+Johan Fabricio Lizarve Mamani & Datos y calidad & Catálogo, pruebas de clasificación, métricas y documentación. \\
+Asistente farmacéutica & Operación de botica & Casos frecuentes, vocabulario de clientes y validación operativa. \\
+Químico farmacéutico & Responsabilidad sanitaria & Criterios de derivación y revisión de casos profesionales. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\capitulo{CAPITULO 2: MARCO TEÓRICO}
+
+FarmaChasqui se fundamenta en la atención conversacional, el diseño centrado en las personas y la seguridad en el uso de medicamentos. Un chatbot interpreta una consulta y responde mediante reglas y datos autorizados; en este proyecto sus respuestas se limitan al catálogo de la botica y a la gestión de pedidos permitidos. La seguridad exige diferenciar información comercial de una recomendación terapéutica. Por ello, las consultas sobre receta, dosis, interacciones, síntomas de alarma o tratamiento se derivan a un profesional.
+
+La condición de venta se obtiene del catálogo validado por la botica: los productos de venta sin receta pueden informar presentación, precio y disponibilidad; los productos sujetos a receta no se confirman automáticamente. El tratamiento de datos se limita a lo necesario para la consulta o pedido, siguiendo la Ley N.° 29733 y su reglamento vigente.
+
+\capitulo{CAPÍTULO 3: METODOLOGÍA}
+
+\textbf{Población a quien está orientado el sistema.} El sistema está orientado a clientes de una botica mediana que realizan consultas rápidas antes de visitar el local o solicitar un pedido, y al personal que actualmente responde esas consultas. La validación inicial utilizará participantes adultos y escenarios simulados, sin pedidos reales ni datos clínicos.
+
+\textbf{Arquitectura de su solución.} La arquitectura considera un canal conversacional web o de mensajería; un orquestador que identifica la intención; un catálogo con presentación, precio, disponibilidad y condición de venta; un motor de reglas que decide si corresponde informar, registrar una solicitud preliminar o derivar; un panel para el químico farmacéutico; y un registro mínimo de auditoría. La API conecta estos componentes y el catálogo es la única fuente para información comercial.
+
+\textbf{Diseño del experimento.} Se realizará una prueba piloto con 8 a 12 participantes adultos y una revisión de escenarios por parte del personal de la botica. Las tareas simuladas serán buscar un producto, consultar precio, verificar disponibilidad, iniciar un pedido permitido y solicitar un medicamento que requiere derivación. Se compararán éxito de tarea, tiempo, errores de comprensión y percepción de facilidad. El químico farmacéutico verificará que todos los casos críticos terminen en derivación.
+
+\textbf{Métricas de evaluación.} Se medirán el éxito de tarea (meta inicial: 80\% o más), el tiempo de respuesta del catálogo (menos de 3 segundos en pruebas locales), la precisión de clasificación (90\% o más), la derivación segura de los casos críticos simulados (100\%) y la usabilidad percibida mediante SUS o encuesta equivalente (70/100 o más).
+
+\textbf{Herramientas.} Se emplearán Figma o equivalente para prototipos, un frontend web responsivo, una API REST, base de datos relacional, control de acceso por roles, Git para control de versiones y una hoja de pruebas con consentimiento para los participantes.
+
+\capitulo{CAPÍTULO 4: DISEÑO DEL PROTOTIPO}
+
+\begin{itemize}[leftmargin=1.4em,itemsep=0.55em]
+    \item \textbf{Cronograma de actividades.} Semanas 1 y 2: requisitos y reglas; semanas 3 y 4: diseño conversacional y prototipos; semanas 5 y 6: catálogo y backend; semanas 7 y 8: implementación del chatbot; semana 9: pruebas de usabilidad y seguridad; semana 10: documentación, póster y demostración.
+    \item \textbf{Evidencias de su avance.} Propuesta aprobada; definición del problema, alcance y roles; reglas de derivación y metodología descritas en este informe. Como evidencia posterior se incorporarán capturas de flujos, prototipo navegable, matriz de pruebas, registro de decisiones farmacéuticas y resultados de la prueba piloto.
+    \item \textbf{Porcentaje de su avance.} Avance inicial estimado: 10\%. Corresponde a la definición del problema, planteamiento funcional, asignación de roles y diseño metodológico. Aún faltan la implementación, la validación con usuarios y la revisión final por el químico farmacéutico.
+\end{itemize}
+
+\capitulo{BIBLIOGRAFÍA}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.55em]
+    \item Autoridad Nacional de Protección de Datos Personales. (2024). \textit{Decreto Supremo N.° 016-2024-JUS: Reglamento de la Ley N.° 29733}. \url{https://www.gob.pe/institucion/anpd/normas-legales/6554453-16-2024-jus}
+    \item Dirección General de Medicamentos, Insumos y Drogas. (s. f.). \textit{Venta sin receta}. \url{https://www.digemid.minsa.gob.pe/webDigemid/registro-sanitario/productos-farmaceuticos/venta-sin-receta/}
+    \item Ministerio de Salud del Perú. (2011). \textit{Decreto Supremo N.° 014-2011-SA: Reglamento de Establecimientos Farmacéuticos}. \url{https://www.gob.pe/institucion/minsa/normas-legales/243288-014-2011-sa}
+    \item Ministerio de Salud del Perú. (2024). \textit{Farmacias y boticas deben exigir receta antes de vender medicamentos que requieren prescripción médica}. \url{https://www.gob.pe/institucion/minsa/noticias/962205-farmacias-y-boticas-deben-exigir-receta-antes-de-vender-medicamentos-que-requieren-prescripcion-medica}
+    \item World Health Organization. (2024). \textit{Medication without harm: Policy brief}. \url{https://www.who.int/publications/i/item/9789240062764}
+\end{enumerate}
+
+\end{document}
